@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Artea Milktea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #6f4e37;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #4a3222;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px;
+        }
+
+        nav a:hover {
+            background-color: #6f4e37;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 150px; 
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .order-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-form label {
+            font-size: 16px;
+        }
+
+        .order-form select, .order-form button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        footer {
+            background-color: #4a3222;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        .cart-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .cart-section h3 {
+            text-align: center;
+        }
+
+        .cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .cart-items li {
+            margin: 10px 0;
+        }
+
+        .cart-button {
+            background-color: #6f4e37;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .cart-button:hover {
+            background-color: #4a3222;
+        }
+
+        .total-price {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Artea MilkTea</h1>
+    <p>Your daily dose of milktea happiness</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#cart">Cart</a>
+</nav>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>Welcome to Artea MilkTea, where we brew happiness in every cup. Our milktea shop is a cozy haven for milktea lovers. We craft every drink with love. Come, sit back, and savor the aroma!</p>
+</section>
+
+<section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu">
+        <div class="menu-item">
+            <img src="1.png" alt="Choco Coffee">
+            <h3>Choco Coffee</h3>
+            <p>Mocha Coffee with Coffee Jelly sinker</p>
+            <p><strong>₱78.00</strong></p>
+            <form class="order-form" id="choco-coffee-form-1">
+                <label for="sugar-1">Choose Sugar Content:</label>
+                <select id="sugar-1" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Choco Coffee', 78, document.getElementById('sugar-1').value)">Add to Cart</button>
+            </form>
+        </div>
+
+        <div class="menu-item">
+            <img src="2.png" alt="Buko Matcha">
+            <h3>Buko Matcha</h3>
+            <p>Creamy matcha with fresh coconut and Buko Jelly Sinker</p>
+            <p><strong>₱78.00</strong></p>
+            <form class="order-form" id="buko-matcha-form-2">
+                <label for="sugar-2">Choose Sugar Content:</label>
+                <select id="sugar-2" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Buko Matcha', 78, document.getElementById('sugar-2').value)">Add to Cart</button>
+            </form>
+        </div>
+        <div class="menu-item">
+            <img src="3.png" alt="Green Coffee">
+            <h3>Green Coffee</h3>
+            <p>Matcha and Coffee with Coffee Jellly Sinker</p>
+            <p><strong>₱78.00</strong></p>
+            <form class="order-form" id="green-coffee-form-3">
+                <label for="sugar-3">Choose Sugar Content:</label>
+                <select id="sugar-3" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Green Coffee', 78, document.getElementById('sugar-3').value)">Add to Cart</button>
+            </form>
+        </div>
+                <div class="menu-item">
+            <img src="4.png" alt="American Coffee">
+            <h3>American Coffee</h3>
+            <p>A pure shot of coffee with Coffee Jelly Sinker</p>
+            <p><strong>₱78.00</strong></p>
+            <form class="order-form" id="american-coffee-form-4">
+                <label for="sugar-4">Choose Sugar Content:</label>
+                <select id="sugar-4" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('American Coffee', 78, document.getElementById('sugar-4').value)">Add to Cart</button>
+            </form>
+        </div>
+                <div class="menu-item">
+            <img src="5.png" alt="Purple Coffee">
+            <h3>Purple Coffee</h3>
+            <p>Ube Taste Coffee with Coffee Jelly Sinker</p>
+            <p><strong>₱78.00</strong></p>
+            <form class="order-form" id="purple-coffee-form-5">
+                <label for="sugar-5">Choose Sugar Content:</label>
+                <select id="sugar-5" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Purple Coffee', 78, document.getElementById('sugar-5').value)">Add to Cart</button>
+            </form>
+        </div>
+                <div class="menu-item">
+            <img src="6.png" alt="Carma">
+            <h3>Carma</h3>
+            <p>Blended Caramel Macchiato</p>
+            <p><strong>₱158.00</strong></p>
+            <br>
+            <form class="order-form" id="carma-form-6">
+                <label for="sugar-6">Choose Sugar Content:</label>
+                <select id="sugar-6" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Carma', 158, document.getElementById('sugar-6').value)">Add to Cart</button>
+            </form>
+        </div>
+                <div class="menu-item">
+            <img src="7.png" alt="Java Berry">
+            <h3>Java Berry</h3>
+            <p>Blended Strawberry Black Forest</p>
+            <p><strong>₱158.00</strong></p>
+            <br>
+            <form class="order-form" id="java-berry-form-7">
+                <label for="sugar-7">Choose Sugar Content:</label>
+                <select id="sugar-7" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Java Berry', 158, document.getElementById('sugar-7').value)">Add to Cart</button>
+            </form>
+        </div>
+                <div class="menu-item">
+            <img src="8.jpg" alt="Blueberry Yogo">
+            <h3>Blueberry Yogo</h3>
+            <p>Creamy blueberry with Yogurt Sinker.</p>
+            <p><strong>₱78.00</strong></p>
+            <form class="order-form" id="blueberry-yogo-form-8">
+                <label for="sugar-8">Choose Sugar Content:</label>
+                <select id="sugar-8" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Blueberry Yogo', 78, document.getElementById('sugar-8').value)">Add to Cart</button>
+            </form>
+        </div>
+                <div class="menu-item">
+            <img src="9.jpg" alt="Honeydew Milk">
+            <h3>Honeydew Milk</h3>
+            <p>Sweet honeydew with Honeydew Balls Sinker</p>
+            <p><strong>₱78.00</strong></p>
+            <form class="order-form" id="honeydew-milk-form-9">
+                <label for="sugar-9">Choose Sugar Content:</label>
+                <select id="sugar-9" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Honeydew Milk', 78, document.getElementById('sugar-9').value)">Add to Cart</button>
+            </form>
+        </div>
+                <div class="menu-item">
+            <img src="10.jpg" alt="Ube Milk">
+            <h3>Ube Milk</h3>
+            <p>Sweet ube with Ube Pudding Sinker</p>
+            <p><strong>₱78.00</strong></p>
+            <form class="order-form" id="ube-milk-form-10">
+                <label for="sugar-10">Choose Sugar Content:</label>
+                <select id="sugar-10" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Ube Milk', 78, document.getElementById('sugar-10').value)">Add to Cart</button>
+            </form>
+        </div>
+                <div class="menu-item">
+            <img src="11.jpg" alt="Green Apple Milk">
+            <h3>Green Apple Milk</h3>
+            <p>Refreshing green apple with Milk Sinker</p>
+            <p><strong>₱78.00</strong></p>
+            <form class="order-form" id="green-apple-milk-form-11">
+                <label for="sugar-11">Choose Sugar Content:</label>
+                <select id="sugar-11" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Green Apple Milk', 78, document.getElementById('sugar-11').value)">Add to Cart</button>
+            </form>
+        </div>
+                <div class="menu-item">
+            <img src="12.jpg" alt="Lychee Yogurt">
+            <h3>Lychee Yogurt</h3>
+            <p>Sweet lychee with Yogurt Sinker</p>
+            <p><strong>₱98.00</strong></p>
+            <br>
+            <form class="order-form" id="lychee-yogurt-form-12">
+                <label for="sugar-12">Choose Sugar Content:</label>
+                <select id="sugar-12" name="sugar">
+                    <option value="no-sugar">No Sugar</option>
+                    <option value="less-sugar">Less Sugar</option>
+                    <option value="regular-sugar">Regular Sugar</option>
+                    <option value="extra-sugar">Extra Sugar</option>
+                </select>
+                <button type="button" onclick="addToCart('Lychee Yogurt', 98, document.getElementById('sugar-12').value)">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section id="cart" class="cart-section">
+    <h3>Your Cart</h3>
+    <ul class="cart-items" id="cart-items"></ul>
+    <div class="total-price" id="total-price">Total: ₱0.00</div>
+    <button class="cart-button" onclick="completePurchase()">Buy Now</button>
+</section>
+
+<footer>
+    <p>&copy; 2024 Artea MilkTea. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = [];
+
+    function addToCart(name, price, sugar) {
+        const item = { name, price, sugar };
+        cart.push(item);
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = ''; // Clear current items
+
+        let totalAmount = 0;
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - ₱${item.price} (${item.sugar})`;
+            cartItemsContainer.appendChild(li);
+
+            totalAmount += item.price; // Add price to total
+        });
+
+        document.getElementById('total-price').textContent = `Total: ₱${totalAmount.toFixed(2)}`;
+    }
+
+    function completePurchase() {
+        if (cart.length === 0) {
+            alert('Your cart is empty! Add some items to your cart first.');
+            return;
+        }
+
+        // Show an alert with cart contents
+        const cartDetails = cart.map(item => `${item.name} - ₱${item.price} (${item.sugar})`).join('\n');
+        alert(`Your purchase:\n${cartDetails}\nThank you for your order!`);
+
+        // Clear the cart after purchase
+        cart = [];
+        updateCart();
+    }
+</script>
+
+</body>
+</html>
